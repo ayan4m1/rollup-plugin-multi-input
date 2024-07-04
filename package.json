@@ -1,6 +1,6 @@
 {
   "name": "@ayan4m1/rollup-plugin-multi-input",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A rollup plugin which allows 1:1 mapping of input to output files.",
   "type": "module",
   "module": "./dist/plugin.js",
