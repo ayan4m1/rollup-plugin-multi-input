@@ -2,8 +2,9 @@
 
 <!-- [![CD](https://github.com/ayan4m1/rollup-plugin-multi-input/workflows/CD/badge.svg)](https://github.com/ayan4m1/rollup-plugin-multi-input/actions/workflows/CD.yml)
 [![CI](https://github.com/ayan4m1/rollup-plugin-multi-input/workflows/CI/badge.svg)](https://github.com/ayan4m1/rollup-plugin-multi-input/actions/workflows/CI.yml)
-[![codecov](https://codecov.io/gh/ayan4m1/rollup-plugin-multi-input/branch/main/graph/badge.svg)](https://codecov.io/gh/ayan4m1/rollup-plugin-multi-input) -->
+ -->
 
+[![codecov](https://codecov.io/gh/ayan4m1/rollup-plugin-multi-input/branch/main/graph/badge.svg)](https://codecov.io/gh/ayan4m1/rollup-plugin-multi-input)
 [![npm version](https://badge.fury.io/js/rollup-plugin-multi-input.svg)](https://badge.fury.io/js/rollup-plugin-multi-input)
 
 > :warning: **Do you really need rollup-plugin-multi-input?**
