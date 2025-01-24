@@ -1,10 +1,11 @@
-import fastGlob from 'fast-glob';
+import { sync } from 'fast-glob';
 import path from 'path';
 import type { Plugin } from 'rollup';
 import type FastGlob from 'fast-glob';
 
 const pluginName = '@ayan4m1/rollup-plugin-multi-input';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isString = (value: any): value is string => typeof value === 'string';
 
 /**
@@ -46,22 +47,20 @@ const multiInput = (options: MultiInputOptions = defaultOptions): Plugin => {
       const others = inputs.filter((value) => !isString(value));
       const normalizedGlobs = globs.map((glob) => glob.replace(/\\/g, '/'));
       // get files from the globs strings and return as a Rollup entries Object
-      const entries = fastGlob
-        .sync(normalizedGlobs, globOptions)
-        .map((name) => {
-          const filePath = path.relative(relative, name);
-          const isRelative = !filePath.startsWith(`..${path.sep}`);
-          const relativeFilePath = isRelative
-            ? filePath
-            : path.relative(`.${path.sep}`, name);
-          if (transformOutputPath) {
-            return [
-              outputFileName(transformOutputPath(relativeFilePath, name)),
-              name,
-            ];
-          }
-          return [outputFileName(relativeFilePath), name];
-        });
+      const entries = sync(normalizedGlobs, globOptions).map((name) => {
+        const filePath = path.relative(relative, name);
+        const isRelative = !filePath.startsWith(`..${path.sep}`);
+        const relativeFilePath = isRelative
+          ? filePath
+          : path.relative(`.${path.sep}`, name);
+        if (transformOutputPath) {
+          return [
+            outputFileName(transformOutputPath(relativeFilePath, name)),
+            name,
+          ];
+        }
+        return [outputFileName(relativeFilePath), name];
+      });
       const input = Object.assign(
         {},
         Object.fromEntries(entries),
