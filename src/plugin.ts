@@ -1,9 +1,12 @@
-import { sync } from 'fast-glob';
+import fastGlob from 'fast-glob';
 import path from 'path';
 import type { Plugin } from 'rollup';
 import type FastGlob from 'fast-glob';
 
 const pluginName = '@ayan4m1/rollup-plugin-multi-input';
+
+// eslint-disable-next-line import-x/no-named-as-default-member
+const { sync } = fastGlob;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const isString = (value: any): value is string => typeof value === 'string';
