@@ -7,10 +7,11 @@ jobs:
       matrix:
         os: [ubuntu-latest, macOS-latest]
     steps:
-      - uses: actions/setup-node@v4
+      - run: corepack enable
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
-      - uses: actions/checkout@v4
+          node-version: 'lts/*'
+      - uses: actions/checkout@v6
       - name: build
         run: |
           yarn install --frozen-lockfile
@@ -22,10 +23,11 @@ jobs:
         os: [ubuntu-latest, macOS-latest]
     needs: build
     steps:
-      - uses: actions/setup-node@v4
+      - run: corepack enable
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
-      - uses: actions/checkout@v4
+          node-version: 'lts/*'
+      - uses: actions/checkout@v6
       - name: build
         run: |
           yarn install --frozen-lockfile
